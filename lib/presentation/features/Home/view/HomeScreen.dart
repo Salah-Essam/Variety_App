@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:variety_app/presentation/features/Home/view/ProfileScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,12 +10,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              Navigator.pushNamed(context, ProfileScreen.name);
+            },
+          ),
+        ],
         title: Text(
-          "Variey App",
-          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+          "Variety App",
+          // style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        // backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }
