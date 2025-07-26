@@ -7,24 +7,26 @@ class AppTextField extends StatelessWidget {
     required this.controller,
     required this.onChange,
     this.type,
-    this.isObscure = false,
+    this.isObscure,
     this.style,
     this.labelText,
     this.hint,
     this.prefixIcon,
     this.suffixIcon,
     this.errorText,
+    this.textInputAction,
   });
   final TextEditingController controller;
   final Function(String)? onChange;
   final TextInputType? type;
-  final bool isObscure;
+  final bool? isObscure;
   final TextStyle? style;
   final String? labelText;
   final String? hint;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final String? errorText;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +41,9 @@ class AppTextField extends StatelessWidget {
         errorText: errorText,
       ),
       keyboardType: type,
-      obscureText: isObscure,
+      obscureText: isObscure ?? false,
       style: style,
+      textInputAction: textInputAction,
     );
   }
 }

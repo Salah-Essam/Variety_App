@@ -18,7 +18,7 @@ class AppButton extends StatelessWidget {
           backgroundColor: WidgetStateProperty.all(colorScheme.primary),
           foregroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
           textStyle: WidgetStateProperty.all(
-            TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         onPressed: onPressed,

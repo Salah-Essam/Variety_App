@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/AppColors.dart';
-import 'package:variety_app/presentation/features/Home/view/HomeScreen.dart';
-import 'package:variety_app/presentation/features/Home/view/ProfileScreen.dart';
+import 'package:variety_app/core/AppRoutes.dart';
 import 'package:variety_app/presentation/features/auth/view/LoginScreen.dart';
-import 'package:variety_app/presentation/features/auth/view/SignUpScreen.dart';
 
 void main() {
   runApp(VarietyApp());
@@ -16,12 +14,7 @@ class VarietyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: LoginScreen.name,
-      routes: {
-        ProfileScreen.name: (context) => ProfileScreen(),
-        SignUpScreen.name: (context) => SignUpScreen(),
-        LoginScreen.name: (context) => LoginScreen(),
-        HomeScreen.name: (context) => HomeScreen(),
-      },
+      routes: AppRoutes.routes,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: AppColors.primary,

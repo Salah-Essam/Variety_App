@@ -4,17 +4,23 @@ import 'package:variety_app/presentation/features/auth/view/SignUpScreen.dart';
 import 'package:variety_app/presentation/widgets/AppButton.dart';
 import 'package:variety_app/presentation/widgets/AppTextField.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
 
   static String name = "login";
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passController = TextEditingController();
+  bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
-    final color_scheme = Theme.of(context).colorScheme;
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,8 +31,6 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   "assets/Login.png",
-                  // width: size.width * 0.5,
-                  // height: size.height * 0.3,
                   width: size.width * 0.5,
                   height: size.height * 0.3,
                 ),
@@ -44,6 +48,8 @@ class LoginScreen extends StatelessWidget {
                   onChange: (v) {},
                   labelText: "Email",
                   hint: "Enter your Email",
+                  type: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
                 ),
                 SizedBox(height: 16),
                 AppTextField(
@@ -51,6 +57,19 @@ class LoginScreen extends StatelessWidget {
                   onChange: (v) {},
                   labelText: "Password",
                   hint: "Enter your Password",
+                  type: TextInputType.visiblePassword,
+
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                  ),
+                  isObscure: _isObscure,
                 ),
                 Text("dont've an account?"),
                 InkWell(
@@ -79,24 +98,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-//   ElevatedButton AppButton(ColorScheme color_scheme) {
-//     return ElevatedButton(
-//                   style: ButtonStyle(
-//                     backgroundColor: WidgetStateProperty.all(
-//                       color_scheme.primary,
-//                     ),
-//                     foregroundColor: WidgetStateProperty.all(
-//                       color_scheme.onPrimary,
-//                     ),
-//                     textStyle: WidgetStateProperty.all(
-//                       TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-//                     ),
-//                   ),
-//                   onPressed: () {
-//                     // Navigator.popAndPushNamed(context, HomeScreen.name);
-//                     // Navigator.pushNamed(context, HomeScreen.name);
-//                   },
-//                   child: Text("Login"),
-//                 );
-//   }
