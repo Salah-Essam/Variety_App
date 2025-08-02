@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
 import 'package:variety_app/presentation/features/Home/view/ProfileScreen.dart';
+import 'package:variety_app/presentation/features/Store/Views/home/view/Store_HomeScreen.dart';
 import 'package:variety_app/presentation/widgets/AppButton.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  static String name = "home";
+  static const String name = "home";
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,13 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 );
+              },
+            ),
+            SizedBox(height: 16),
+            AppButton(
+              title: "Store App",
+              onPressed: () {
+                Navigator.pushNamed(context, StoreHomeScreen.name);
               },
             ),
           ],

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/ConfirmPassValidator.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/EmailAppValidator.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/PasswordAppValidator.dart';
 import 'package:variety_app/presentation/features/Home/view/HomeScreen.dart';
 import 'package:variety_app/presentation/widgets/AppButton.dart';
 import 'package:variety_app/presentation/widgets/AppTextField.dart';
@@ -20,11 +23,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   TextEditingController confirmPassController = TextEditingController();
 
+  final EmailAppValidator emailValidator = EmailAppValidator();
+  final PasswordAppValidator passwordValidator = PasswordAppValidator();
+  final ConfirmPassValidator confirmPassValidator = ConfirmPassValidator(
+    originalPassword: "",
+  );
+
   bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
-    // final color_scheme = Theme.of(context).colorScheme;
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
@@ -66,8 +74,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 16),
                 AppTextField(
+                  validator: emailValidator,
                   controller: emailController,
-                  onChange: (v) {},
+                  onChange: (v) {
+                    setState(() {
+                      emailValidator.setValue(v);
+                    });
+                  },
                   labelText: "Email",
                   hint: "Enter your Email",
                   type: TextInputType.emailAddress,
@@ -75,8 +88,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 16),
                 AppTextField(
+                  validator: passwordValidator,
                   controller: passController,
-                  onChange: (v) {},
+                  onChange: (v) {
+                    setState(() {
+                      passwordValidator.setValue(v);
+                      confirmPassValidator.originalPassword = v;
+                    });
+                  },
                   labelText: "Password",
                   hint: "Enter your Password",
                   type: TextInputType.visiblePassword,
@@ -86,8 +105,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 16),
                 AppTextField(
+                  validator: confirmPassValidator,
                   controller: confirmPassController,
-                  onChange: (v) {},
+                  onChange: (v) {
+                    setState(() {
+                      confirmPassValidator.setValue(v);
+                    });
+                  },
                   labelText: "Confirm Password",
                   hint: "Confirm your Password",
                   type: TextInputType.visiblePassword,

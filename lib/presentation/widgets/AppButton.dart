@@ -2,17 +2,22 @@
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
-  const AppButton({Key? key, required this.onPressed, this.title})
-    : super(key: key);
+  const AppButton({
+    Key? key,
+    required this.onPressed,
+    required this.title,
+    this.width,
+  }) : super(key: key);
   final VoidCallback onPressed;
   final String? title;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
       height: 50,
-      width: double.infinity,
+      width: width ?? double.infinity,
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(colorScheme.primary),
