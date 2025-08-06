@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/validators/AppValidatorTypes/ConfirmPassValidator.dart';
-import 'package:variety_app/core/validators/AppValidatorTypes/EmailAppValidator.dart';
-import 'package:variety_app/core/validators/AppValidatorTypes/PasswordAppValidator.dart';
-import 'package:variety_app/presentation/features/Home/view/HomeScreen.dart';
-import 'package:variety_app/presentation/widgets/AppButton.dart';
-import 'package:variety_app/presentation/widgets/AppTextField.dart';
+import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/confirm_pass_validator.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/email_app_validator.dart';
+import 'package:variety_app/core/validators/AppValidatorTypes/password_app_validator.dart';
+import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
+import 'package:variety_app/presentation/widgets/app_button.dart';
+import 'package:variety_app/presentation/widgets/app_text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({super.key});
+  const SignUpScreen({super.key});
   static String name = "SignUp";
 
   @override
@@ -51,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 Image.asset(
-                  "assets/Sign up.png",
+                  AppAssets.signup,
                   width: size.width * 0.5,
                   height: size.height * 0.3,
                 ),

@@ -1,16 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:variety_app/core/AppAssets.dart';
-import 'package:variety_app/core/AppColors.dart';
+import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/app_colors.dart';
 
-class homeContainer extends StatelessWidget {
-  const homeContainer({
-    Key? key,
+class HomeContainer extends StatelessWidget {
+  const HomeContainer({
+    super.key,
     this.child,
     required this.title,
     required this.onTap,
-  }) : super(key: key);
+  });
   final Widget? child;
   final String title;
   final VoidCallback onTap;

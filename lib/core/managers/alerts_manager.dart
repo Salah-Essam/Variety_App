@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/AppColors.dart';
-import 'package:variety_app/presentation/widgets/AppButton.dart';
+import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/presentation/widgets/app_button.dart';
 
 class AlertsManager {
-  static void ShowBottomSheet({
+  static void showBottomSheet({
     required BuildContext context,
     double? height,
     double? width,

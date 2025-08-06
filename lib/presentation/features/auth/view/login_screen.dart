@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/presentation/features/Home/view/HomeScreen.dart';
-import 'package:variety_app/presentation/features/auth/view/SignUpScreen.dart';
-import 'package:variety_app/presentation/widgets/AppButton.dart';
-import 'package:variety_app/presentation/widgets/AppTextField.dart';
+import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
+import 'package:variety_app/presentation/features/auth/view/sing_up_screen.dart';
+import 'package:variety_app/presentation/widgets/app_button.dart';
+import 'package:variety_app/presentation/widgets/app_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   static String name = "login";
 
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 Image.asset(
-                  "assets/Login.png",
+                  AppAssets.login,
                   width: size.width * 0.5,
                   height: size.height * 0.3,
                 ),

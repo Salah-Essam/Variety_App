@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
-import 'package:variety_app/presentation/features/Home/view/ProfileScreen.dart';
-import 'package:variety_app/presentation/features/Store/Views/home/view/Store_HomeScreen.dart';
-import 'package:variety_app/presentation/widgets/AppButton.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_home.dart';
+import 'package:variety_app/presentation/features/Home/view/profile_screen.dart';
+import 'package:variety_app/presentation/features/Store/Views/home/view/store_home_screen.dart';
+import 'package:variety_app/presentation/widgets/app_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             AppButton(
               title: "Open Bottom Sheet",
               onPressed: () {
-                AlertsManager.ShowBottomSheet(
+                AlertsManager.showBottomSheet(
                   context: context,
 
                   child: Column(
@@ -56,6 +57,13 @@ class HomeScreen extends StatelessWidget {
               title: "Store App",
               onPressed: () {
                 Navigator.pushNamed(context, StoreHomeScreen.name);
+              },
+            ),
+            SizedBox(height: 16),
+            AppButton(
+              title: "Figma Task",
+              onPressed: () {
+                Navigator.pushNamed(context, FigmaHome.name);
               },
             ),
           ],

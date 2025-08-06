@@ -1,5 +1,5 @@
-import 'package:variety_app/core/validators/AppRegEx.dart';
-import 'package:variety_app/core/validators/AppValidator.dart';
+import 'package:variety_app/core/validators/app_reg_ex.dart';
+import 'package:variety_app/core/validators/app_validator.dart';
 
 class PasswordAppValidator extends AppValidator {
   PasswordAppValidator({super.initValue});

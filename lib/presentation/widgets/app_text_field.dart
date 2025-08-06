@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/AppColors.dart';
-import 'package:variety_app/core/validators/AppValidator.dart';
+import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/validators/app_validator.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
