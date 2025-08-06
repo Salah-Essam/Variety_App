@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/AppColors.dart';
-import 'package:variety_app/core/AppRoutes.dart';
-import 'package:variety_app/presentation/features/auth/view/LoginScreen.dart';
+import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_routes.dart';
+import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
 
 void main() {
-  runApp(VarietyApp());
+  runApp(const VarietyApp());
 }
 
 class VarietyApp extends StatelessWidget {

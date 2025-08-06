@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/AppAssets.dart';
-import 'package:variety_app/presentation/features/Store/Views/Products/view/ProductsScreen.dart';
-import 'package:variety_app/presentation/features/Store/Widgets/homeContainer.dart';
+import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/presentation/features/Store/Views/Products/view/products_screen.dart';
+import 'package:variety_app/presentation/features/Store/Views/home/Widgets/home_container.dart';
 
 class StoreHomeScreen extends StatelessWidget {
   const StoreHomeScreen({super.key});
@@ -15,7 +15,7 @@ class StoreHomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            homeContainer(
+            HomeContainer(
               title: "Products",
               onTap: () {
                 Navigator.pushNamed(context, ProductsScreen.name);
@@ -30,7 +30,7 @@ class StoreHomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24),
-            homeContainer(
+            HomeContainer(
               title: "Cart",
               onTap: () {},
               child: Image.asset(

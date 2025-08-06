@@ -1,4 +1,4 @@
-import 'package:variety_app/core/validators/AppValidator.dart';
+import 'package:variety_app/core/validators/app_validator.dart';
 
 class ConfirmPassValidator extends AppValidator {
   String originalPassword;

@@ -1,0 +1,30 @@
+import 'package:variety_app/core/remote/api_keys.dart';
+
+class Product {
+  final int id;
+  final String title;
+  final double price;
+  final String description;
+  final String category;
+  final String image;
+
+  Product({
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.description,
+    required this.category,
+    required this.image,
+  });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: (json[Apikeys.id] as num).toInt(),
+      title: json[Apikeys.title],
+      price: (json[Apikeys.price] as num).toDouble(),
+      description: json[Apikeys.description],
+      category: json[Apikeys.category],
+      image: json[Apikeys.image],
+    );
+  }
+}

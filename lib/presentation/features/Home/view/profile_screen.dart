@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/core/AppColors.dart';
+import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
-import 'package:variety_app/presentation/features/auth/view/LoginScreen.dart';
-import 'package:variety_app/presentation/widgets/AppButton.dart';
+import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
+import 'package:variety_app/presentation/widgets/app_button.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
