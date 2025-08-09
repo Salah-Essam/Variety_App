@@ -4,7 +4,6 @@ import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:variety_app/presentation/features/Figma_Task/widgets/figma_product_card.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 import 'package:variety_app/presentation/widgets/app_text_field.dart';
 
