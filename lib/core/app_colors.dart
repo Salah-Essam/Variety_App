@@ -9,4 +9,5 @@ class AppColors {
   static Color textGrey = const Color(0xFF4F5663);
   static Color figmaHomeBackGround = const Color(0xFFFCFCFC);
   static Color figmaGrey = const Color(0xFFD9D9D9);
+  static Color figmaLightGrey = const Color.fromARGB(255, 245, 245, 245);
 }
