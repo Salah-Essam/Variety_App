@@ -16,13 +16,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
             onPressed: () {
               Navigator.pushNamed(context, ProfileScreen.name);
             },
           ),
         ],
-        title: Text("Variety App"),
+        title: const Text("Variety App"),
         centerTitle: true,
       ),
       body: Padding(
@@ -38,8 +38,11 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Bottom Sheet", style: TextStyle(fontSize: 32)),
-                      SizedBox(height: 16),
+                      const Text(
+                        "Bottom Sheet",
+                        style: TextStyle(fontSize: 32),
+                      ),
+                      const SizedBox(height: 16),
                       SizedBox(
                         width: 150,
                         child: AppButton(
@@ -52,14 +55,14 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             AppButton(
               title: "Store App",
               onPressed: () {
                 Navigator.pushNamed(context, StoreHomeScreen.name);
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             AppButton(
               title: "Figma Task",
               onPressed: () {

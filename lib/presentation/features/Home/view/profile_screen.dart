@@ -21,8 +21,11 @@ class ProfileScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              CircleAvatar(radius: 64, child: Icon(Icons.person, size: 64)),
-              Spacer(),
+              const CircleAvatar(
+                radius: 64,
+                child: Icon(Icons.person, size: 64),
+              ),
+              const Spacer(),
               AppButton(
                 onPressed:
                     () => AlertsManager.showAppDialog(

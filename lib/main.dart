@@ -25,24 +25,24 @@ class VarietyApp extends StatelessWidget {
             horizontal: 12,
             vertical: 8,
           ),
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontSize: 14,
             color: Colors.grey,
             fontWeight: FontWeight.w400,
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: Colors.grey),
+            borderSide: const BorderSide(width: 1, color: Colors.grey),
             borderRadius: BorderRadius.circular(8),
           ),
           disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: Colors.grey),
+            borderSide: const BorderSide(width: 1, color: Colors.grey),
             borderRadius: BorderRadius.circular(8),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 1, color: AppColors.primary),
             borderRadius: BorderRadius.circular(8),
           ),
-          errorBorder: OutlineInputBorder(
+          errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 1.5, color: Colors.red),
           ),
           suffixIconColor: Colors.grey,

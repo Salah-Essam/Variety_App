@@ -4,6 +4,7 @@ import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:variety_app/presentation/features/Figma_Task/widgets/figma_product_card.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 import 'package:variety_app/presentation/widgets/app_text_field.dart';
 
@@ -37,7 +38,7 @@ class _FigmaHomeState extends State<FigmaHome> {
 
   final TextEditingController searchController = TextEditingController();
 
-  final Widget bagIcon = SvgPicture.asset(
+  final Widget bagIconBlack = SvgPicture.asset(
     AppAssets.figmaBagBlack,
     height: 32,
     width: 32,
@@ -53,6 +54,7 @@ class _FigmaHomeState extends State<FigmaHome> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Column(
@@ -62,7 +64,7 @@ class _FigmaHomeState extends State<FigmaHome> {
                       Text("Falcon Thought", style: TextStyles.semiBold_600_12),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     height: 50,
                     width: 50,
@@ -70,58 +72,60 @@ class _FigmaHomeState extends State<FigmaHome> {
                       onTap: () {},
                       child: CircleAvatar(
                         backgroundColor: AppColors.white,
-                        child: bagIcon,
+                        child: bagIconBlack,
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               AppTextField(
                 controller: searchController,
                 onChange: (v) {},
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 hint: "what are you loking for...",
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.figmaGrey,
                   borderRadius: BorderRadius.circular(16),
                 ),
-                height: 200,
+                height: 150,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 24, left: 24),
+                  padding: const EdgeInsets.only(top: 16, left: 16),
                   child: Row(
                     children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Shop wit us!",
-                              style: TextStyles.regular_400_14,
-                            ),
-                            SizedBox(height: 16),
-
-                            Text(
-                              "Get 40% Off for all iteams",
-                              style: TextStyles.bold_700_20,
-                            ),
-                            SizedBox(height: 24),
-                            InkWell(
-                              onTap: () {},
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Shop Now ",
-                                    style: TextStyles.bold_700_12,
-                                  ),
-                                  Icon(Icons.arrow_forward),
-                                ],
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Shop wit us!",
+                                style: TextStyles.regular_400_14,
                               ),
-                            ),
-                          ],
+
+                              Text(
+                                "Get 40% Off for all iteams",
+                                style: TextStyles.bold_700_20,
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Shop Now ",
+                                      style: TextStyles.bold_700_12,
+                                    ),
+                                    const Icon(Icons.arrow_forward),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Expanded(child: Image.asset(AppAssets.men)),
@@ -129,19 +133,20 @@ class _FigmaHomeState extends State<FigmaHome> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               SizedBox(
                 height: 40,
                 child: ListView.separated(
-                  separatorBuilder: (context, index) => SizedBox(width: 16),
+                  separatorBuilder:
+                      (context, index) => const SizedBox(width: 16),
                   itemBuilder: (context, index) {
                     return Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 24,
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0xFFF6F6F6),
+                        color: const Color(0xFFF6F6F6),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(
@@ -154,87 +159,16 @@ class _FigmaHomeState extends State<FigmaHome> {
                   scrollDirection: Axis.horizontal,
                 ),
               ),
-              // SizedBox(height: 16),
+              const SizedBox(height: 16),
               isLoading
-                  ? Center(child: CircularProgressIndicator())
-                  : GridView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.75,
-                    ),
-                    itemBuilder: (context, index) {
-                      final product = products[index];
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.figmaLightGrey,
-                            borderRadius: BorderRadius.circular(24),
-                          ),
-                          child: Stack(
-                            children: [
-                              Align(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        top: 16,
-                                        left: 16,
-                                        right: 16,
-                                      ),
-                                      child: SizedBox(
-                                        height: 150,
-                                        child: Image.network(
-                                          product.image,
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 8),
-                                    SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        product.title,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyles.regular_400_14,
-                                      ),
-                                    ),
-                                    Text(
-                                      "\$ ${product.price}",
-                                      style: TextStyles.bold_700_12,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: CircleAvatar(
-                                    backgroundColor: AppColors.white,
-                                    child: Icon(Icons.favorite_border),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                child: Positioned(
-                                  top: 4,
-
-                                  child: CircleAvatar(
-                                    backgroundColor: AppColors.black,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                    itemCount: products.length,
+                  ? const Center(child: CircularProgressIndicator())
+                  : Wrap(
+                    spacing: 16,
+                    runSpacing: 16,
+                    children:
+                        products.map((product) {
+                          return FigmaProductCard(product: product);
+                        }).toList(),
                   ),
             ],
           ),

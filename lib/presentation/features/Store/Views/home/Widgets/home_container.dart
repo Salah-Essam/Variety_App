@@ -30,7 +30,7 @@ class HomeContainer extends StatelessWidget {
             BoxShadow(
               color: AppColors.black.withAlpha(150),
               blurRadius: 16,
-              offset: Offset(3, 4),
+              offset: const Offset(3, 4),
             ),
           ],
         ),

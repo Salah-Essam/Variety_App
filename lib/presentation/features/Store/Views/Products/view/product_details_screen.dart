@@ -15,7 +15,7 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -30,12 +30,12 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: size.height * 0.45,
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Text(
               product.title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               "\$${product.price}",
               style: TextStyle(
@@ -44,14 +44,14 @@ class ProductDetailsScreen extends StatelessWidget {
                 color: AppColors.green,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
                   borderRadius: BorderRadius.circular(16),
                   onTap: () {},
-                  child: Row(
+                  child: const Row(
                     children: [
                       Text(
                         "add to cart",
@@ -67,7 +67,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.favorite_border, size: 40),
+                  icon: const Icon(Icons.favorite_border, size: 40),
                 ),
               ],
             ),

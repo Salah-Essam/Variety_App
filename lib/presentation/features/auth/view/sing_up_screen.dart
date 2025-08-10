@@ -45,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fontSize: size.height * 0.05,
                   ),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 AppTextField(
                   controller: nameController,
                   onChange: (v) {},
@@ -73,7 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   type: TextInputType.name,
                   textInputAction: TextInputAction.next,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 AppTextField(
                   validator: emailValidator,
                   controller: emailController,
@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   type: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 AppTextField(
                   validator: passwordValidator,
                   controller: passController,
@@ -104,7 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                   isObscure: _isObscure,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 AppTextField(
                   validator: confirmPassValidator,
                   controller: confirmPassController,
@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   type: TextInputType.visiblePassword,
                   isObscure: _isObscure,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   children: [
                     Checkbox(
@@ -129,10 +129,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         });
                       },
                     ),
-                    Text("Show the password."),
+                    const Text("Show the password."),
                   ],
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 AppButton(
                   title: "Sign up",
                   onPressed: () {

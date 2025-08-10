@@ -10,13 +10,13 @@ import 'package:variety_app/presentation/features/auth/view/sing_up_screen.dart'
 
 class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
-    FigmaHome.name: (context) => FigmaHome(),
-    ProductDetailsScreen.name: (context) => ProductDetailsScreen(),
-    ProductsScreen.name: (context) => ProductsScreen(),
-    StoreHomeScreen.name: (context) => StoreHomeScreen(),
-    ProfileScreen.name: (context) => ProfileScreen(),
-    SignUpScreen.name: (context) => SignUpScreen(),
-    LoginScreen.name: (context) => LoginScreen(),
-    HomeScreen.name: (context) => HomeScreen(),
+    FigmaHome.name: (context) => const FigmaHome(),
+    ProductDetailsScreen.name: (context) => const ProductDetailsScreen(),
+    ProductsScreen.name: (context) => const ProductsScreen(),
+    StoreHomeScreen.name: (context) => const StoreHomeScreen(),
+    ProfileScreen.name: (context) => const ProfileScreen(),
+    SignUpScreen.name: (context) => const SignUpScreen(),
+    LoginScreen.name: (context) => const LoginScreen(),
+    HomeScreen.name: (context) => const HomeScreen(),
   };
 }

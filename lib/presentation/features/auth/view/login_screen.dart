@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: size.height * 0.05,
                   ),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 AppTextField(
                   controller: emailController,
                   onChange: (v) {},
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   type: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 AppTextField(
                   controller: passController,
                   onChange: (v) {},
@@ -72,15 +72,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   isObscure: _isObscure,
                 ),
-                Text("dont've an account?"),
+                const Text("dont've an account?"),
                 InkWell(
                   borderRadius: BorderRadius.circular(8),
                   onTap: () {
                     Navigator.pushNamed(context, SignUpScreen.name);
                   },
-                  child: Text("Sign up now."),
+                  child: const Text("Sign up now."),
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 AppButton(
                   title: "Login",
                   onPressed: () {
