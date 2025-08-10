@@ -10,7 +10,7 @@ class StoreHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Store App")),
+      appBar: AppBar(title: const Text("Store App")),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -29,7 +29,7 @@ class StoreHomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             HomeContainer(
               title: "Cart",
               onTap: () {},

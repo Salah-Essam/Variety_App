@@ -30,24 +30,24 @@ class AlertsManager {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Align(
+          title: const Align(
             alignment: Alignment.topLeft,
             child: Icon(
               Icons.warning_amber_rounded,
-              color: const Color.fromARGB(255, 217, 163, 0),
+              color: Color.fromARGB(255, 217, 163, 0),
               size: 50,
             ),
           ),
           content: Text(
             text,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text(
+              child: const Text(
                 "Cancel",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),

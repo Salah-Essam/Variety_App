@@ -39,11 +39,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
     return Scaffold(
       body:
           isLoading
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : CustomScrollView(
                 slivers: [
                   SliverAppBar(
-                    title: Text(
+                    title: const Text(
                       "Products",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),

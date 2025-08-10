@@ -29,13 +29,13 @@ class ProductCard extends StatelessWidget {
               BoxShadow(
                 color: AppColors.black.withAlpha(100),
                 blurRadius: 8,
-                offset: Offset(5, 5),
+                offset: const Offset(5, 5),
               ),
             ],
           ),
           child: Row(
             children: [
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Hero(
                 tag: product.id,
                 child: ClipRRect(
@@ -48,23 +48,23 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
 
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       product.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       '\$${product.price}',
                       style: TextStyle(
@@ -80,7 +80,7 @@ class ProductCard extends StatelessWidget {
                           InkWell(
                             borderRadius: BorderRadius.circular(24),
                             onTap: () {},
-                            child: Row(
+                            child: const Row(
                               children: [
                                 Text(
                                   "add to cart",
@@ -96,7 +96,7 @@ class ProductCard extends StatelessWidget {
 
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.favorite_border, size: 40),
+                            icon: const Icon(Icons.favorite_border, size: 40),
                           ),
                         ],
                       ),
