@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_bottom_nav_bar.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_carts.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_cart_details.dart';
 import 'package:variety_app/presentation/features/Figma_Task/view/figma_home.dart';
 import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
 import 'package:variety_app/presentation/features/Home/view/profile_screen.dart';
@@ -10,6 +13,9 @@ import 'package:variety_app/presentation/features/auth/view/sing_up_screen.dart'
 
 class AppRoutes {
   static Map<String, WidgetBuilder> routes = {
+    FigmaBottomNavBar.name: (context) => const FigmaBottomNavBar(),
+    FigmaCartDetails.name: (context) => const FigmaCartDetails(),
+    FigmaCarts.name: (context) => const FigmaCarts(),
     FigmaHome.name: (context) => const FigmaHome(),
     ProductDetailsScreen.name: (context) => const ProductDetailsScreen(),
     ProductsScreen.name: (context) => const ProductsScreen(),

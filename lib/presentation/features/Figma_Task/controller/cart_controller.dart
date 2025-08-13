@@ -1,16 +1,16 @@
 import 'package:variety_app/core/remote/api_constants.dart';
 import 'package:variety_app/core/remote/api_service.dart';
-import 'package:variety_app/data/models/product_model.dart';
+import 'package:variety_app/data/models/cart_model.dart';
 
-class ProductsController {
+class CartController {
   final ApiService apiService = ApiService();
 
-  Future<List<Product>> getProducts() async {
+  Future<List<CartModel>> getCarts() async {
     try {
-      final response = await apiService.get(path: ApiConstants.productsUrl);
+      final response = await apiService.get(path: ApiConstants.cartUrl);
       final List<dynamic> dataList = response.data as List;
       if (response.statusCode == 200) {
-        return dataList.map((e) => Product.fromJson(e)).toList();
+        return dataList.map((e) => CartModel.fromJson(e)).toList();
       }
       return [];
     } catch (e) {

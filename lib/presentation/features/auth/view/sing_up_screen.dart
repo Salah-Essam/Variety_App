@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/confirm_pass_validator.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/email_app_validator.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/password_app_validator.dart';
@@ -57,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: size.height * 0.3,
                 ),
                 Text(
-                  "Sign up",
+                  AppStrings.signUp,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -68,8 +69,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 AppTextField(
                   controller: nameController,
                   onChange: (v) {},
-                  labelText: "Name",
-                  hint: "Enter your Name",
+                  labelText: AppStrings.name,
+                  hint: AppStrings.enterYourName,
                   type: TextInputType.name,
                   textInputAction: TextInputAction.next,
                 ),
@@ -82,8 +83,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       emailValidator.setValue(v);
                     });
                   },
-                  labelText: "Email",
-                  hint: "Enter your Email",
+                  labelText: AppStrings.email,
+                  hint: AppStrings.enterYourEmail,
                   type: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
@@ -97,8 +98,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       confirmPassValidator.originalPassword = v;
                     });
                   },
-                  labelText: "Password",
-                  hint: "Enter your Password",
+                  labelText: AppStrings.password,
+                  hint: AppStrings.enterYourPassword,
                   type: TextInputType.visiblePassword,
                   textInputAction: TextInputAction.next,
 
@@ -113,8 +114,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       confirmPassValidator.setValue(v);
                     });
                   },
-                  labelText: "Confirm Password",
-                  hint: "Confirm your Password",
+                  labelText: AppStrings.confirmPassowrd,
+                  hint: AppStrings.confirmYourPassword,
                   type: TextInputType.visiblePassword,
                   isObscure: _isObscure,
                 ),
@@ -129,12 +130,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         });
                       },
                     ),
-                    const Text("Show the password."),
+                    const Text(AppStrings.showThePassword),
                   ],
                 ),
                 const SizedBox(height: 32),
                 AppButton(
-                  title: "Sign up",
+                  title: AppStrings.signUp,
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,

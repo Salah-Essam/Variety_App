@@ -14,6 +14,12 @@ class TextStyles {
     color: AppColors.black,
   );
 
+  static TextStyle semiBold_600_16 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    color: AppColors.black,
+  );
+
   static TextStyle regular_400_14 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 18,

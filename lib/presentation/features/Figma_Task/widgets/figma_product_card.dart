@@ -18,6 +18,7 @@ class FigmaProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
@@ -27,7 +28,7 @@ class FigmaProductCard extends StatelessWidget {
         );
       },
       child: SizedBox(
-        width: 150,
+        width: (size.width >= 450) ? 200 : 150,
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.figmaLightGrey,
@@ -74,14 +75,11 @@ class FigmaProductCard extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: Positioned(
-                          top: 4,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: CircleAvatar(
-                              backgroundColor: AppColors.black,
-                              child: bagIconWhite,
-                            ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: CircleAvatar(
+                            backgroundColor: AppColors.black,
+                            child: bagIconWhite,
                           ),
                         ),
                       ),
@@ -90,13 +88,16 @@ class FigmaProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              SizedBox(
-                width: 100,
-                child: Text(
-                  product.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyles.regular_400_14,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    product.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyles.regular_400_14,
+                  ),
                 ),
               ),
               Text("\$ ${product.price}", style: TextStyles.bold_700_12),

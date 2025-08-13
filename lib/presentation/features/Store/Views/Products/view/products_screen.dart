@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
 import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/widgets/product_card.dart';
@@ -15,7 +16,7 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-  final Productlistcontroller productlistcontroller = Productlistcontroller();
+  final ProductsController productlistcontroller = ProductsController();
   bool isLoading = true;
   List<Product> products = [];
 
@@ -44,7 +45,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 slivers: [
                   SliverAppBar(
                     title: const Text(
-                      "Products",
+                      AppStrings.products,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     iconTheme: IconThemeData(color: AppColors.black),

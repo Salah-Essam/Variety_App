@@ -7,4 +7,7 @@ class Apikeys {
   static const String image = "image";
   static const String products = "products";
   static const String userID = "userId";
+  static const String date = 'date';
+  static const String productId = 'productId';
+  static const String quantity = 'quantity';
 }

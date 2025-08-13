@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
 import 'package:variety_app/presentation/features/auth/view/sing_up_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: size.height * 0.3,
                 ),
                 Text(
-                  "Login",
+                  AppStrings.login,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -47,8 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 AppTextField(
                   controller: emailController,
                   onChange: (v) {},
-                  labelText: "Email",
-                  hint: "Enter your Email",
+                  labelText: AppStrings.email,
+                  hint: AppStrings.enterYourEmail,
                   type: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
                 ),
@@ -56,8 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 AppTextField(
                   controller: passController,
                   onChange: (v) {},
-                  labelText: "Password",
-                  hint: "Enter your Password",
+                  labelText: AppStrings.password,
+                  hint: AppStrings.enterYourPassword,
                   type: TextInputType.visiblePassword,
 
                   suffixIcon: IconButton(
@@ -72,17 +73,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   isObscure: _isObscure,
                 ),
-                const Text("dont've an account?"),
+                const Text(AppStrings.dontHaveAnAccount),
                 InkWell(
                   borderRadius: BorderRadius.circular(8),
                   onTap: () {
                     Navigator.pushNamed(context, SignUpScreen.name);
                   },
-                  child: const Text("Sign up now."),
+                  child: const Text(AppStrings.signUpNow),
                 ),
                 const SizedBox(height: 32),
                 AppButton(
-                  title: "Login",
+                  title: AppStrings.login,
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,

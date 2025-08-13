@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
 import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_carts.dart';
 import 'package:variety_app/presentation/features/Figma_Task/widgets/figma_product_card.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 import 'package:variety_app/presentation/widgets/app_text_field.dart';
@@ -18,7 +20,7 @@ class FigmaHome extends StatefulWidget {
 }
 
 class _FigmaHomeState extends State<FigmaHome> {
-  final Productlistcontroller productlistcontroller = Productlistcontroller();
+  final ProductsController productlistcontroller = ProductsController();
   bool isLoading = true;
   List<Product> products = [];
 
@@ -46,6 +48,7 @@ class _FigmaHomeState extends State<FigmaHome> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       // appBar: AppBar(),
       backgroundColor: AppColors.figmaHomeBackGround,
@@ -60,8 +63,15 @@ class _FigmaHomeState extends State<FigmaHome> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Welcome Back!", style: TextStyles.regular_400_10),
-                      Text("Falcon Thought", style: TextStyles.semiBold_600_12),
+                      const SizedBox(height: 16),
+                      Text(
+                        AppStrings.welcomeBack,
+                        style: TextStyles.regular_400_10,
+                      ),
+                      Text(
+                        "Falcon Thought",
+                        style: TextStyles.semiBold_600_12,
+                      ), // the string is the dummy user name
                     ],
                   ),
                   const Spacer(),
@@ -69,7 +79,9 @@ class _FigmaHomeState extends State<FigmaHome> {
                     height: 50,
                     width: 50,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, FigmaCarts.name);
+                      },
                       child: CircleAvatar(
                         backgroundColor: AppColors.white,
                         child: bagIconBlack,
@@ -83,7 +95,7 @@ class _FigmaHomeState extends State<FigmaHome> {
                 controller: searchController,
                 onChange: (v) {},
                 prefixIcon: const Icon(Icons.search),
-                hint: "what are you loking for...",
+                hint: AppStrings.whatAreYouLookingFor,
               ),
               const SizedBox(height: 32),
               Container(
@@ -91,44 +103,50 @@ class _FigmaHomeState extends State<FigmaHome> {
                   color: AppColors.figmaGrey,
                   borderRadius: BorderRadius.circular(16),
                 ),
-                height: 150,
+                height: size.height * 0.25,
+                width: size.width * 0.9,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 16, left: 16),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Shop wit us!",
+                                AppStrings.shopWithUs,
                                 style: TextStyles.regular_400_14,
+                                overflow: TextOverflow.ellipsis,
                               ),
 
                               Text(
-                                "Get 40% Off for all iteams",
+                                AppStrings.getOffForAllIteams,
                                 style: TextStyles.bold_700_20,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               InkWell(
                                 onTap: () {},
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "Shop Now ",
-                                      style: TextStyles.bold_700_12,
-                                    ),
-                                    const Icon(Icons.arrow_forward),
-                                  ],
+                                child: Text(
+                                  AppStrings.shopNow,
+                                  style: TextStyles.bold_700_12,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      Expanded(child: Image.asset(AppAssets.men)),
+                      Expanded(
+                        child: Image.asset(
+                          AppAssets.men,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
                     ],
                   ),
                 ),

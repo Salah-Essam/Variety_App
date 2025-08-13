@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_home.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/figma_bottom_nav_bar.dart';
 import 'package:variety_app/presentation/features/Home/view/profile_screen.dart';
 import 'package:variety_app/presentation/features/Store/Views/home/view/store_home_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
         ],
-        title: const Text("Variety App"),
+        title: const Text(AppStrings.varietyApp),
         centerTitle: true,
       ),
       body: Padding(
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             AppButton(
-              title: "Open Bottom Sheet",
+              title: AppStrings.openBottomSheet,
               onPressed: () {
                 AlertsManager.showBottomSheet(
                   context: context,
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Bottom Sheet",
+                        AppStrings.bottomSheet,
                         style: TextStyle(fontSize: 32),
                       ),
                       const SizedBox(height: 16),
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                         width: 150,
                         child: AppButton(
                           onPressed: () => Navigator.pop(context),
-                          title: "Close",
+                          title: AppStrings.close,
                         ),
                       ),
                     ],
@@ -57,16 +58,16 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             AppButton(
-              title: "Store App",
+              title: AppStrings.storeApp,
               onPressed: () {
                 Navigator.pushNamed(context, StoreHomeScreen.name);
               },
             ),
             const SizedBox(height: 16),
             AppButton(
-              title: "Figma Task",
+              title: AppStrings.figmaTask,
               onPressed: () {
-                Navigator.pushNamed(context, FigmaHome.name);
+                Navigator.pushNamed(context, FigmaBottomNavBar.name);
               },
             ),
           ],

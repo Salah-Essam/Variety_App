@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/view/product_details_screen.dart';
 
@@ -83,7 +84,7 @@ class ProductCard extends StatelessWidget {
                             child: const Row(
                               children: [
                                 Text(
-                                  "add to cart",
+                                  AppStrings.addToCart,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
 import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';
@@ -29,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
               AppButton(
                 onPressed:
                     () => AlertsManager.showAppDialog(
-                      text: "Are you sure you want to log out?",
+                      text: AppStrings.areYouSureYouWantToLogOut,
                       context: context,
                       onPressedOk: () {
                         Navigator.pushNamedAndRemoveUntil(
@@ -39,11 +40,11 @@ class ProfileScreen extends StatelessWidget {
                         );
                         AlertsManager.showSnackbar(
                           context: context,
-                          text: "You have successfully logged out.",
+                          text: AppStrings.youHaveSuccessfullyLoggedOut,
                         );
                       },
                     ),
-                title: "Sign out",
+                title: AppStrings.signOut,
               ),
             ],
           ),
