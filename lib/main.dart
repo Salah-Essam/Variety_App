@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_routes.dart';
+import 'package:variety_app/core/managers/shared_preferences_manager.dart';
 import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.wait([SharedPreferencesManager.init()]);
   runApp(const VarietyApp());
 }
 

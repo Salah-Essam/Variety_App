@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
+import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/data/models/product_model.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -54,7 +55,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   child: const Row(
                     children: [
                       Text(
-                        "add to cart",
+                        AppStrings.addToCart,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
