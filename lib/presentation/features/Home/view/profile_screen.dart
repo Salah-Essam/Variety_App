@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
+import 'package:variety_app/core/managers/Firebase/firebase_auth_manager.dart';
+import 'package:variety_app/core/managers/shared_preferences_manager.dart';
 import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';
 
@@ -33,6 +35,8 @@ class ProfileScreen extends StatelessWidget {
                       text: AppStrings.areYouSureYouWantToLogOut,
                       context: context,
                       onPressedOk: () {
+                        FirebaseManager.instance.signOut();
+                        SharedPreferencesManager.removeToken();
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           LoginScreen.name,

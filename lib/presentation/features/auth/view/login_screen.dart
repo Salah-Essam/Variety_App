@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_strings.dart';
+import 'package:variety_app/core/managers/Firebase/firebase_auth_manager.dart';
 import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
 import 'package:variety_app/presentation/features/auth/view/sing_up_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';
@@ -84,12 +86,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 32),
                 AppButton(
                   title: AppStrings.login,
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      HomeScreen.name,
-                      (r) => false,
+                  onPressed: () async {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      barrierColor: AppColors.black.withAlpha(100),
+                      builder:
+                          (_) =>
+                              const Center(child: CircularProgressIndicator()),
                     );
+                    try {
+                      await FirebaseManager.instance.signInWithEmail(
+                        email: emailController.text,
+                        password: passController.text,
+                      );
+                      if (!context.mounted) return;
+                      Navigator.pop(context);
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        HomeScreen.name,
+                        (r) => false,
+                      );
+                    } catch (e) {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Login failed: $e")),
+                      );
+                    }
                   },
                 ),
               ],

@@ -1,12 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_strings.dart';
+import 'package:variety_app/core/managers/Firebase/firebase_auth_manager.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_carts.dart';
-import 'package:variety_app/presentation/features/Figma_Task/widgets/figma_product_card.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/view/figma_carts.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/home/widgets/figma_product_card.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 import 'package:variety_app/presentation/widgets/app_text_field.dart';
 
@@ -23,10 +25,12 @@ class _FigmaHomeState extends State<FigmaHome> {
   final ProductsController productlistcontroller = ProductsController();
   bool isLoading = true;
   List<Product> products = [];
+  User? user;
 
   @override
   void initState() {
     super.initState();
+    initializeUser();
     loadData();
   }
 
@@ -45,6 +49,11 @@ class _FigmaHomeState extends State<FigmaHome> {
     height: 32,
     width: 32,
   );
+
+  Future<void> initializeUser() async {
+    user = await FirebaseManager.instance.getCurrentUser();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +78,7 @@ class _FigmaHomeState extends State<FigmaHome> {
                         style: TextStyles.regular_400_10,
                       ),
                       Text(
-                        "Falcon Thought",
+                        user?.displayName ?? AppStrings.guest,
                         style: TextStyles.semiBold_600_12,
                       ), // the string is the dummy user name
                     ],

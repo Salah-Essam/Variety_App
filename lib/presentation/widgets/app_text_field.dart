@@ -19,7 +19,7 @@ class AppTextField extends StatelessWidget {
     this.textInputAction,
     this.validator,
   });
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Function(String)? onChange;
   final TextInputType? type;
   final bool? isObscure;

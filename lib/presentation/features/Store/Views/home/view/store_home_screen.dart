@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
 import 'package:variety_app/core/app_strings.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_carts.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/view/figma_carts.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/view/products_screen.dart';
 import 'package:variety_app/presentation/features/Store/Views/home/Widgets/home_container.dart';
 

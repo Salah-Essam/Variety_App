@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268306723418",
+    "project_id": "variety-app-85431",
+    "storage_bucket": "variety-app-85431.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268306723418:android:97482ae7263bbb2327de63",
+        "android_client_info": {
+          "package_name": "com.example.variety_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlN5Iki56qKOMhTzWUE6-1NUBxt4OIvlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,7 @@ import 'package:variety_app/data/models/cart_model.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
 import 'package:variety_app/presentation/features/Figma_Task/controller/cart_controller.dart';
-import 'package:variety_app/presentation/features/Figma_Task/widgets/cart_card.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/widgets/cart_card.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/controller/product_list_controller.dart';
 
 class FigmaCarts extends StatefulWidget {

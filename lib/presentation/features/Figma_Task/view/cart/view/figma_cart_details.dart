@@ -3,8 +3,8 @@ import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/data/models/cart_model.dart';
 import 'package:variety_app/data/models/product_model.dart';
 import 'package:variety_app/presentation/features/Figma_Task/constants/text_styles.dart';
-import 'package:variety_app/presentation/features/Figma_Task/widgets/cart_summary.dart';
-import 'package:variety_app/presentation/features/Figma_Task/widgets/product_card_in_cart.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/widgets/cart_summary.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/widgets/product_card_in_cart.dart';
 
 class FigmaCartDetails extends StatelessWidget {
   const FigmaCartDetails({super.key});

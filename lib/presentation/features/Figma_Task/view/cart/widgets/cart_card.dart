@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/data/models/cart_model.dart';
 import 'package:variety_app/data/models/product_model.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_cart_details.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/view/figma_cart_details.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({super.key, required this.cart, required this.products});
