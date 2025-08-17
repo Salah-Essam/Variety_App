@@ -34,4 +34,5 @@ class AppStrings {
   static const String shopWithUs = "Shop with us!";
   static const String getOffForAllIteams = "Get 40% OFF for all iteams";
   static const String shopNow = "Shop Now   >>>";
+  static const String guest = "Guest";
 }

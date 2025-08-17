@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_assets.dart';
+import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_strings.dart';
+import 'package:variety_app/core/managers/Firebase/firebase_auth_manager.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/confirm_pass_validator.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/email_app_validator.dart';
 import 'package:variety_app/core/validators/AppValidatorTypes/password_app_validator.dart';
@@ -18,11 +20,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController nameController = TextEditingController();
-
   TextEditingController emailController = TextEditingController();
-
   TextEditingController passController = TextEditingController();
-
   TextEditingController confirmPassController = TextEditingController();
 
   final EmailAppValidator emailValidator = EmailAppValidator();
@@ -136,13 +135,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(height: 32),
                 AppButton(
                   title: AppStrings.signUp,
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      HomeScreen.name,
-                      (r) => false,
-                    );
-                  },
+
+                  onPressed:
+                      ((emailValidator.reasons.isEmpty &&
+                                  passwordValidator.reasons.isEmpty &&
+                                  confirmPassValidator.reasons.isEmpty) &&
+                              nameController.text.isNotEmpty &&
+                              emailController.text.isNotEmpty &&
+                              passController.text.isNotEmpty)
+                          ? () async {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              barrierColor: AppColors.black.withAlpha(100),
+                              builder:
+                                  (_) => const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                            );
+                            try {
+                              await FirebaseManager.instance.signUpWithEmail(
+                                name: nameController.text,
+                                email: emailController.text,
+                                password: passController.text,
+                              );
+                              if (!context.mounted) return;
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                HomeScreen.name,
+                                (r) => false,
+                              );
+                            } catch (e) {
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Login failed: $e")),
+                              );
+                            }
+                          }
+                          : () {},
                 ),
               ],
             ),

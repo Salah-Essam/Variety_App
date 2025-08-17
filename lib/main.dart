@@ -1,12 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_routes.dart';
 import 'package:variety_app/core/managers/shared_preferences_manager.dart';
+import 'package:variety_app/firebase_options.dart';
+import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
 import 'package:variety_app/presentation/features/auth/view/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Future.wait([SharedPreferencesManager.init()]);
+  await Future.wait([
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
+    SharedPreferencesManager.init(),
+    Hive.initFlutter(),
+  ]);
   runApp(const VarietyApp());
 }
 
@@ -15,8 +23,9 @@ class VarietyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String? token = SharedPreferencesManager.getToken();
     return MaterialApp(
-      initialRoute: LoginScreen.name,
+      initialRoute: token != null ? HomeScreen.name : LoginScreen.name,
       routes: AppRoutes.routes,
       theme: ThemeData(
         appBarTheme: AppBarTheme(

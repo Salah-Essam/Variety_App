@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_bottom_nav_bar.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_carts.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_cart_details.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_home.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/home/view/figma_bottom_nav_bar.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/view/figma_carts.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/cart/view/figma_cart_details.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/home/view/figma_home.dart';
 import 'package:variety_app/presentation/features/Home/view/home_screen.dart';
 import 'package:variety_app/presentation/features/Home/view/profile_screen.dart';
 import 'package:variety_app/presentation/features/Store/Views/Products/view/product_details_screen.dart';

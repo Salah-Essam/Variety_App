@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_strings.dart';
 import 'package:variety_app/core/managers/alerts_manager.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_bottom_nav_bar.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/home/view/figma_bottom_nav_bar.dart';
 import 'package:variety_app/presentation/features/Home/view/profile_screen.dart';
 import 'package:variety_app/presentation/features/Store/Views/home/view/store_home_screen.dart';
 import 'package:variety_app/presentation/widgets/app_button.dart';

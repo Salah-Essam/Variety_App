@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/presentation/features/Figma_Task/view/figma_favorites.dart';
-import 'package:variety_app/presentation/features/Figma_Task/view/figma_home.dart';
+import 'package:variety_app/presentation/features/Figma_Task/view/home/view/figma_home.dart';
 import 'package:variety_app/presentation/features/Figma_Task/view/figma_notifications.dart';
 import 'package:variety_app/presentation/features/Figma_Task/view/figma_profile.dart';
 
