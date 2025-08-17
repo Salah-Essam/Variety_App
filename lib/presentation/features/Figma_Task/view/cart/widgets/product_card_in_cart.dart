@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/data/models/product_model.dart';
@@ -43,8 +44,13 @@ class ProductCardInCart extends StatelessWidget {
               children: [
                 Hero(
                   tag: product.id,
-                  child: Image.network(
-                    product.image,
+                  child: CachedNetworkImage(
+                    imageUrl: product.image,
+                    placeholder:
+                        (context, url) =>
+                            const Center(child: CircularProgressIndicator()),
+                    errorWidget:
+                        (context, url, error) => const Icon(Icons.error),
                     fit: BoxFit.contain,
                     width: 75,
                   ),

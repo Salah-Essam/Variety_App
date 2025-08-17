@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:variety_app/core/app_assets.dart';
 import 'package:variety_app/core/app_colors.dart';
 import 'package:variety_app/core/app_strings.dart';
@@ -24,6 +25,7 @@ class FigmaHome extends StatefulWidget {
 class _FigmaHomeState extends State<FigmaHome> {
   final ProductsController productlistcontroller = ProductsController();
   bool isLoading = true;
+  bool noData = false;
   List<Product> products = [];
   User? user;
 
@@ -35,11 +37,31 @@ class _FigmaHomeState extends State<FigmaHome> {
   }
 
   Future<void> loadData() async {
-    final results = await productlistcontroller.getProducts();
-    setState(() {
-      products = results;
-      isLoading = false;
-    });
+    final productsBox = await Hive.openBox<Product>("products");
+
+    try {
+      final List<Product> results = await productlistcontroller.getProducts();
+
+      setState(() {
+        products = results;
+        isLoading = false;
+      });
+      await productsBox.clear();
+      await productsBox.addAll(results);
+    } catch (e) {
+      final cachedProducts = productsBox.values.toList();
+      if (cachedProducts.isNotEmpty) {
+        setState(() {
+          products = cachedProducts;
+          isLoading = false;
+        });
+      } else {
+        debugPrint("Error fetching products: $e");
+        setState(() {
+          noData = true;
+        });
+      }
+    }
   }
 
   final TextEditingController searchController = TextEditingController();
@@ -187,7 +209,9 @@ class _FigmaHomeState extends State<FigmaHome> {
                 ),
               ),
               const SizedBox(height: 16),
-              isLoading
+              noData
+                  ? const Center(child: Text("No products available"))
+                  : isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : Wrap(
                     spacing: 16,
